@@ -23,7 +23,7 @@ class SharedPrefNoteStorage(context: Context) : NoteStorage {
         editor.putString(KEY_TITLE, note.title)
         editor.putString(KEY_CONTENT, note.content)
         editor.apply()
-/*        // TODO коммит
+/*
         sharedPreferences.edit().putString(KEY_ID, note.id)
         sharedPreferences.edit().putString(KEY_TITLE, note.title)
         sharedPreferences.edit().putString(KEY_CONTENT, note.content)*/
