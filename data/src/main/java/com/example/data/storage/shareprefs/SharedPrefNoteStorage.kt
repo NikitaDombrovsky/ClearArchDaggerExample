@@ -1,6 +1,7 @@
 package com.example.data.storage.shareprefs
 
 import android.content.Context
+import android.content.SharedPreferences
 import com.example.data.storage.NoteStorage
 import com.example.data.storage.models.NoteData
 
@@ -16,10 +17,16 @@ class SharedPrefNoteStorage(context: Context) : NoteStorage {
         context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
 
     override fun saveNote(note: NoteData): Boolean {
-        // TODO коммит
+        val editor : SharedPreferences.Editor = sharedPreferences.edit()
+
+        editor.putString(KEY_ID, note.id)
+        editor.putString(KEY_TITLE, note.title)
+        editor.putString(KEY_CONTENT, note.content)
+        editor.apply()
+/*        // TODO коммит
         sharedPreferences.edit().putString(KEY_ID, note.id)
         sharedPreferences.edit().putString(KEY_TITLE, note.title)
-        sharedPreferences.edit().putString(KEY_CONTENT, note.content)
+        sharedPreferences.edit().putString(KEY_CONTENT, note.content)*/
         // TODO Умен
         return true
     }
