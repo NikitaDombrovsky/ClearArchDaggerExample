@@ -5,24 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.example.domain.models.Note
 import com.example.smallnote.R
 import com.example.smallnote.databinding.FragmentCreateNoteBinding
 
-
-/*// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"*/
-
-
 class CreateNoteFragment : Fragment() {
 
-    private lateinit var viewModel: NoteViewModel
+    //private var viewModel: NoteViewModel? = null
+    private val viewModel: NoteViewModel by activityViewModels()
 
     private var _binding: FragmentCreateNoteBinding? = null
     private val binding get() = _binding!!
-   // private val viewModel by viewModels<NoteViewModel>()
+    // private val viewModel by viewModels<NoteViewModel>()
     //private val viewModel: NoteViewModel by viewModels()
 
     /*
@@ -49,8 +45,11 @@ class CreateNoteFragment : Fragment() {
                 id = "0", title = title, content = content
             )
             viewModel.saveNote(note)
+            view.findNavController().navigate(R.id.action_CNFrg_to_VNFrg)
+
         }
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,22 +65,29 @@ class CreateNoteFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CreateNoteFragment.
-         */
+        @JvmStatic
+        fun newInstance() =
+            CreateNoteFragment()
+    }
+    /*    companion object {
+            */
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment CreateNoteFragment.
+     *//*
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             CreateNoteFragment().apply {
                 arguments = Bundle().apply {
-/*                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)*/
+
+*//*                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)*//*
                 }
             }
-    }
+    }*/
 }

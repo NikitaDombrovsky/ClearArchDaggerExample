@@ -7,7 +7,10 @@
     <fragment
         android:id="@+id/createNoteFragment"
         android:name="com.example.smallnote.presentation.CreateNoteFragment"
-        android:label="Create Note" />
+        android:label="Create Note" >
+        <action android:id="@+id/action_CNFrg_to_VNFrg"
+            app:destination="@id/viewNoteFragment"/>
+    </fragment>
 
     <fragment
         android:id="@+id/viewNoteFragment"
